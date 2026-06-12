@@ -1,0 +1,72 @@
+================================================================================
+Voxel point number compare summary
+================================================================================
+Total unique (x,y): 14060
+MATCH          : 13997
+DIFF           : 57
+MISSING_IN_KILL: 4
+MISSING_IN_TXT : 2
+TXT duplicate coordinates : 0
+KILL duplicate coordinates: 41
+================================================================================
+
+First 1000 DIFF rows:
+x=0, y=193, Valid Points=4, r_pn=3, diff=1
+x=0, y=210, Valid Points=9, r_pn=10, diff=-1
+x=0, y=276, Valid Points=13, r_pn=14, diff=-1
+x=0, y=294, Valid Points=3, r_pn=4, diff=-1
+x=0, y=316, Valid Points=3, r_pn=4, diff=-1
+x=1, y=219, Valid Points=9, r_pn=4, diff=5
+x=2, y=190, Valid Points=2, r_pn=1, diff=1
+x=2, y=202, Valid Points=4, r_pn=1, diff=3
+x=2, y=290, Valid Points=6, r_pn=2, diff=4
+x=3, y=201, Valid Points=2, r_pn=1, diff=1
+x=4, y=221, Valid Points=8, r_pn=1, diff=7
+x=5, y=285, Valid Points=2, r_pn=1, diff=1
+x=5, y=292, Valid Points=5, r_pn=3, diff=2
+x=8, y=203, Valid Points=2, r_pn=1, diff=1
+x=10, y=192, Valid Points=3, r_pn=1, diff=2
+x=10, y=292, Valid Points=2, r_pn=1, diff=1
+x=11, y=292, Valid Points=3, r_pn=1, diff=2
+x=16, y=293, Valid Points=3, r_pn=2, diff=1
+x=16, y=302, Valid Points=2, r_pn=1, diff=1
+x=17, y=230, Valid Points=6, r_pn=1, diff=5
+x=18, y=285, Valid Points=5, r_pn=3, diff=2
+x=19, y=190, Valid Points=2, r_pn=1, diff=1
+x=20, y=216, Valid Points=3, r_pn=1, diff=2
+x=20, y=264, Valid Points=11, r_pn=1, diff=10
+x=22, y=233, Valid Points=8, r_pn=5, diff=3
+x=22, y=238, Valid Points=6, r_pn=1, diff=5
+x=23, y=235, Valid Points=7, r_pn=3, diff=4
+x=23, y=269, Valid Points=20, r_pn=1, diff=19
+x=30, y=247, Valid Points=12, r_pn=11, diff=1
+x=31, y=240, Valid Points=16, r_pn=15, diff=1
+x=32, y=215, Valid Points=3, r_pn=1, diff=2
+x=32, y=242, Valid Points=12, r_pn=10, diff=2
+x=38, y=210, Valid Points=2, r_pn=1, diff=1
+x=39, y=247, Valid Points=8, r_pn=7, diff=1
+x=39, y=272, Valid Points=8, r_pn=3, diff=5
+x=41, y=206, Valid Points=3, r_pn=1, diff=2
+x=41, y=256, Valid Points=2, r_pn=1, diff=1
+x=42, y=208, Valid Points=2, r_pn=1, diff=1
+x=44, y=195, Valid Points=6, r_pn=5, diff=1
+x=45, y=202, Valid Points=2, r_pn=1, diff=1
+x=46, y=203, Valid Points=2, r_pn=1, diff=1
+x=47, y=190, Valid Points=2, r_pn=1, diff=1
+x=49, y=269, Valid Points=5, r_pn=3, diff=2
+x=50, y=194, Valid Points=6, r_pn=2, diff=4
+x=54, y=218, Valid Points=6, r_pn=1, diff=5
+x=54, y=225, Valid Points=3, r_pn=1, diff=2
+x=57, y=223, Valid Points=5, r_pn=4, diff=1
+x=57, y=278, Valid Points=2, r_pn=1, diff=1
+x=62, y=236, Valid Points=5, r_pn=1, diff=4
+x=75, y=247, Valid Points=5, r_pn=4, diff=1
+x=87, y=405, Valid Points=1, r_pn=2, diff=-1
+x=88, y=247, Valid Points=4, r_pn=3, diff=1
+x=92, y=247, Valid Points=4, r_pn=3, diff=1
+x=121, y=247, Valid Points=3, r_pn=2, diff=1
+x=211, y=247, Valid Points=2, r_pn=1, diff=1
+x=221, y=214, Valid Points=3, r_pn=2, diff=1
+x=267, y=247, Valid Points=2, r_pn=1, diff=1
+
+Report saved to: compare_report.csv
