@@ -1,0 +1,102 @@
+module voxel_scatter_addr_gen_kitti #(
+    parameter integer GRID_X        = 432,  
+    parameter integer GRID_Y        = 496,  
+    parameter integer BYTES_PER_VOX = 128,  
+    parameter integer DATA_BYTES    = 128,
+    parameter integer COORD_WIDTH   = 11
+) (
+    input wire aclk,
+    input wire aresetn,
+
+    
+    input wire [31:0] base_addr_in,
+
+    
+    input  wire                   s_voxel_valid,
+    output wire                   s_voxel_ready,
+    input  wire [COORD_WIDTH-1:0] s_voxel_x,
+    input  wire [COORD_WIDTH-1:0] s_voxel_y,
+
+    
+    output wire        m_axis_cmd_tvalid,
+    input  wire        m_axis_cmd_tready,
+    output wire [71:0] m_axis_cmd_tdata
+);
+
+    wire clk   = aclk;
+    wire rst_n = aresetn;
+
+    localparam [31:0] GRID_X_U = GRID_X;
+    localparam [31:0] GRID_Y_U = GRID_Y;
+
+    localparam [31:0] ROW_BYTES = GRID_X * BYTES_PER_VOX;
+    localparam [22:0] BTT_BYTES = DATA_BYTES[22:0];
+
+    wire [31:0] ux_raw = {{(32 - COORD_WIDTH) {1'b0}}, s_voxel_x};
+    wire [31:0] uy_raw = {{(32 - COORD_WIDTH) {1'b0}}, s_voxel_y};
+
+    wire voxel_in_range = (ux_raw < GRID_X_U) && (uy_raw < GRID_Y_U);
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    reg         cmd_valid;
+    reg  [31:0] target_addr;
+
+    wire cmd_slot_ready = m_axis_cmd_tready || !cmd_valid;
+    assign s_voxel_ready = cmd_slot_ready;
+
+    wire voxel_fire = s_voxel_valid && cmd_slot_ready;
+
+    
+    
+    
+    wire [31:0] ux_clamped = (ux_raw < GRID_X_U) ? ux_raw : (GRID_X_U - 32'd1);
+    wire [31:0] uy_clamped = (uy_raw < GRID_Y_U) ? uy_raw : (GRID_Y_U - 32'd1);
+
+    wire [31:0] x_offset = ux_clamped * BYTES_PER_VOX;
+    wire [31:0] y_offset = uy_clamped * ROW_BYTES;
+    wire [31:0] calc_addr = base_addr_in + y_offset + x_offset;
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            target_addr <= 32'd0;
+            cmd_valid   <= 1'b0;
+        end else begin
+            if (cmd_slot_ready) begin
+                cmd_valid <= voxel_fire;
+
+                if (voxel_fire) begin
+                    target_addr <= calc_addr;
+                end
+            end
+        end
+    end
+
+    assign m_axis_cmd_tdata = {
+        4'b0000,      
+        4'b0000,      
+        target_addr,  
+        1'b0,         
+        1'b1,         
+        6'b000000,    
+        1'b1,         
+        BTT_BYTES     
+    };
+
+    assign m_axis_cmd_tvalid = cmd_valid;
+
+endmodule
